@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{title}}
+{% endblock %}
+
+{% block content %}
+
+    <h1 class="title">Commits of branch {{title|upper}}</h1>
+
+    {% for commit in commits %}
+        <article class='article-item'>
+
+            <div class='data'>
+                <h2>
+                    Key: {{commit.key}}
+                </h2>
+                <p>
+                    {{commit.message}}
+                </p>
+                <h3>
+                    Author: {{commit.name}}
+                    {{commit.email}}
+                <h3>
+                <span class='date'>{{commit.date}}</span>
+                <p>
+                    <a href="{% url 'commit_detail' commit.key %}">Detail</a>
+                </p>
+            </div>
+
+            <div class='clearfix'></div>
+        </article>
+    {% endfor %}
+    
+{% endblock %}

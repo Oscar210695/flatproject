@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>
+        {% block title %}
+            
+        {% endblock %}
+        | Oscar Arias
+    </title>
+    {% load static %}
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <header>
+        <div id="logotipo">
+            <img src="http://ser-libre.com.ar/wp-content/uploads/2016/10/git-logo.png"/>
+            <h1>GitPython</h1>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="{% url 'index'%}">Branches</a>
+            </li>
+            <li>
+                <a href="{% url 'merges'%}">Merges</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+    </div>
+
+    <div id="content">
+
+        <div class="box">
+            {% block content %}
+            {% endblock %}
+        </div>
+        
+    </div>
+
+    <footer>
+        GitPython &copy; Oscar Arias WEB - {% now "d/m/Y" %}
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{title}}
+{% endblock %}
+
+{% block content %}
+
+    <h1 class="title">{{title}}</h1>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class='message'>
+                {{message}}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <a class='new' href="{% url 'add_merge'%}">Add Merge</a>
+
+    {% for merge in merges %}
+        <article class='article-item'>
+
+            <div class='data'>
+                <h2>
+                    {{merge.title}}
+                    <span class='date'>{{merge.description}}</span>
+                </h2>
+                {% if merge.status_id == 3 %}
+                        <h3>
+                            Author: {{merge.author}}
+                            <p>{{merge.email}}</p>
+                        <h3>
+                {% endif %}
+                <span class='date'>{{merge.status}}</span>
+                <p>
+                    <p>Base branch: {{merge.base_branch}}</p>
+                    <p>Compare branch: {{merge.compare_branch}}</p>
+                    {% if merge.status_id == 1 %}
+                        <a href="{% url 'close_merge' merge.merge_id %}" class='btn btn-delete'>Close</a>
+                    {% endif %}
+                </p>
+            </div>
+
+            <div class='clearfix'></div>
+        </article>
+    {% endfor %}
+
+{% endblock %}
