@@ -49,3 +49,18 @@ We also care about being able to run your test without significant effort on our
 - Your code has tests.
 
 If you come across any questions or anything we didn't cover on this README, feel free to reach out to us and we'll get you an answer as soon as possible. Happy coding!
+
+### Instructions
+Recommend have Python 3.5 and git 2.25 at least
+You must have previously installed GitPython, Django, Djangorestframework, requests
+
+On cmd you should on the download folder of this project Example: cd C:\Users\xxx\Downloads\flatproject-master and then type on the console python manage.py runserver
+At this point the application automatically download the repo on C:\flatproject (There must be prior permissions to save on this route (principal disk) if required)
+
+In cmd appears the url that the project runs, copy and paste on Google Chrome
+
+- Index
+List all the active branches at the repo, you can consult the commits of each branch and commit detail, additional for more details there are a link that redirect to django restframework with the detail of all the changes in each affected file.
+
+- Merges
+List all the Merges saved, you can add another giving the title, description, compare branch, base branch and the status, if you save in open status, at the list you can close by a red button on each merge that has this status. In the other hand if you merge two different branches, you could see this change on the original repo and consult their commits on respectively branch (index view) 
